@@ -10,12 +10,19 @@
 <body>
     <div id="quiz-holder">
         <div id="start">
-            <h1>Code Quiz!</h1>
-            <button id="start-quiz-bttn">START</button>
+            <h1 class="header">Code Quiz!</h1>
+
+            <div class="start">
+                <button id="start-quiz-bttn">START</button>
+            </div>
+    
         </div>
     
+<br>
+
+
         <div id="question-view" class="hide">
-            <div id="timer"> Time left: <span id="time">60</span>seconds</div>
+            <div class="start" id="timer"> Time left: <span id="time">60 </span>seconds</div>
             <div id="question-section">
         
         <h2 id="questions">Answer the following questions:</h2>
@@ -29,17 +36,14 @@
         <h2>Quiz done!</h2>
         <p>Your final score is: <span id="score"></span></p>
         <form id="score-form">
-            <label for="initials">Enter your initials</label>
+            <label for="initials">Please enter your initials to save your score </label>
+            <input type="text" id="initials" name="initials">
+            <button type="submit">Submit score</button>
         </form>
-
-
     </div>
+</div>
 
-    </div>
-
-
-
-
-
-
+<script src="index.js"></script>
 </body>
+
+</html>
