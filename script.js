@@ -70,5 +70,26 @@ thisQuestion.options.forEach(answer => {
 
 function chooseAnswer(answer) {
     const thisQuestion = quizQuestions[questionIndex];
-    if (answer === thisQuestion.correct)
+    if (answer === thisQuestion.correct) {
+        score++;
+    } else {
+        timeLeft -= 10;
+    }
+    questionIndex++;
+    showQuiz();
 }
+
+function finishQuiz () {
+    clearInterval(timer);
+    questionView.classList.add('hide');
+    endView.classList.remove('hide');
+    finalScore.textContent = score;
+
+}
+
+initials.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const playerInitials = document.getElementById('initials').value;
+    console.log(`Initials: ${initials}, Score: ${score}`);
+
+})
