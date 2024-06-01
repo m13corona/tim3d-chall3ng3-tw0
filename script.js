@@ -1,4 +1,3 @@
-document.getElementById('start-button').addEventListener('click', startQuiz)
 
 const questionView = document.getElementById('question-view');
 const endView = document.getElementById('end-view');
@@ -10,7 +9,7 @@ const initials = document.getElementById('initials');
 
 let timer;
 let timeLeft = 60;
-let questionIndex = 0;
+//let questionIndex = 0;
 let score = 0;
 
 
@@ -37,7 +36,7 @@ const quizQuestions = [
 ];
 
 function startQuiz() {
-    document.getElementById('start').classList.add('hide');
+    document.getElementById('start-quiz-bttn').classList.add('hide');
     questionView.classList.remove('hide');
     timer = setInterval(updateTimer, 1000);
     showQuiz();
@@ -56,6 +55,10 @@ function showQuiz() {
         return;
     }
 
+
+document.getElementById('start-quiz-bttn').addEventListener('click', startQuiz)  
+    
+
 const thisQuestion = quizQuestions[questionIndex];
 questionText.textContent = thisQuestion.question;
 answerButtons.innerHTML = '';
@@ -73,7 +76,7 @@ function chooseAnswer(answer) {
     if (answer === thisQuestion.correct) {
         score++;
     } else {
-        timeLeft -= 10;
+        timeLeft = -10;
     }
     questionIndex++;
     showQuiz();
@@ -81,8 +84,8 @@ function chooseAnswer(answer) {
 
 function finishQuiz () {
     clearInterval(timer);
-    questionView.classList.add('hide');
-    endView.classList.remove('hide');
+    questionView.classList.add();
+    endView.classList.remove();
     finalScore.textContent = score;
 
 }
@@ -91,5 +94,5 @@ initials.addEventListener('submit', function(event) {
     event.preventDefault();
     const playerInitials = document.getElementById('initials').value;
     console.log(`Initials: ${initials}, Score: ${score}`);
-
-})
+    alert ("Thank you for playing!");
+});
